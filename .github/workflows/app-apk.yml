@@ -47,12 +47,14 @@ jobs:
           const config: CapacitorConfig = {
             appId: 'com.elevatecv.app',
             appName: 'ElevateCV',
-            webDir: '.',
-            bundledWebRuntime: false
+            webDir: 'dist'
           };
 
           export default config;
           EOF
+
+      - name: Build Web App
+        run: npm run build --if-present
 
       - name: Add Android platform
         run: |
